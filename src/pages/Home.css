@@ -1,6 +1,7 @@
 .home-page {
     min-height: 200vh; /* for demo scrolling */
     margin: 0;
+    padding: 0; /* Added to prevent any default padding */
   
     background: linear-gradient(
       to bottom,
@@ -16,14 +17,15 @@
     color: #fff;
     text-align: center;
     position: relative;
-  }
+}
   
-  /* Fixed header at the top with the first color (#9420a6) */
-  .fixed-header {
+/* Fixed header at the top with the first color (#9420a6) */
+.fixed-header {
     position: fixed;
     top: 0;
+    left: 0; /* Added to ensure full width coverage */
     width: 100%;
-    height: 100px; 
+    height: 50px; 
     z-index: 999;
     
     /* Use the first color from the gradient to match the top portion */
@@ -33,42 +35,325 @@
     justify-content: flex-end;
     align-items: center;
     padding: 0 20px;
-  }
+    box-sizing: border-box; /* Added to ensure padding is included in width */
+}
   
-  /* Social nav container */
-  .social-nav a {
+/* Social nav container */
+.social-nav a {
     margin-left: 20px;
     display: inline-block;
-  }
+}
+
+/* Navigation links (replacing the icon placeholders for now) */
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 0.8rem;
+    margin-right: 20px;
+    transition: all 0.2s;
+    position: relative;
+}
+
+.nav-link:hover {
+    transform: scale(1.1);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: white;
+    transition: width 0.3s;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
   
-  /* Icons */
-  .social-icon {
+/* Icons (keeping for future use) */
+.social-icon {
     width: 32px;
     height: 32px;
     margin-right: 30px;
     transition: transform 0.2s;
     cursor: pointer;
-  }
+}
   
-  /* Simple hover effect */
-  .social-icon:hover {
+/* Simple hover effect */
+.social-icon:hover {
     transform: scale(1.2);
-  }
+}
   
-  /* Space the main content so it's not hidden behind the fixed header */
-  .home-page h1,
-  .home-page p {
-    margin-top: 100px;
-  }
-  
-  html, body {
-    /* Still allow scrolling, just hide the bar */
-    overflow: auto;
+/* Hide scrollbar, preserve scrolling */
+html, body {
+    margin: 0; /* Added to remove default margins */
+    padding: 0; /* Added to remove default padding */
+    overflow: auto;          /* Still allow scrolling, just hide the bar */
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;     /* Firefox */
-  }
-  
-  html::-webkit-scrollbar,
-  body::-webkit-scrollbar {
+    scroll-behavior: smooth;   /* Added for smooth scrolling */
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
     display: none; /* Chrome, Safari, and Opera */
-  }
+}
+  
+/* ------------------------------------------------------------------ */
+/* UPDATED RULES FOR THE PROFILE SECTION                             */
+/* ------------------------------------------------------------------ */
+  
+/* Centers profile image + name below the fixed header */
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Added for vertical centering */
+    height: 100vh; /* Use viewport height for vertical centering */
+    margin-top: 0; /* Remove the top margin */
+    padding-top: 0; /* Remove any padding that might create space */
+}
+  
+/* Circular profile image with a white border */
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    object-fit: cover;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+  
+/* Name styling below the profile image */
+.profile-name {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    text-shadow: 2px 2px 0 #000;
+}
+
+/* Add Tailwind-style utility classes for spacing, etc. */
+.py-16 {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.mb-12 {
+    margin-bottom: 3rem;
+}
+
+.mb-6 {
+    margin-bottom: 1.5rem;
+}
+
+.mb-4 {
+    margin-bottom: 1rem;
+}
+
+.mb-2 {
+    margin-bottom: 0.5rem;
+}
+
+.mt-4 {
+    margin-top: 1rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.gap-8 {
+    gap: 2rem;
+}
+
+.gap-2 {
+    gap: 0.5rem;
+}
+
+.max-w-6xl {
+    max-width: 72rem;
+}
+
+.max-w-3xl {
+    max-width: 48rem;
+}
+
+.max-w-lg {
+    max-width: 32rem;
+}
+
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.text-4xl {
+    font-size: 2.25rem;
+}
+
+.text-xl {
+    font-size: 1.25rem;
+}
+
+.text-lg {
+    font-size: 1.125rem;
+}
+
+.text-xs {
+    font-size: 0.75rem;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.bg-opacity-10 {
+    background-opacity: 0.1;
+}
+
+.bg-opacity-20 {
+    background-opacity: 0.2;
+}
+
+.bg-purple-800 {
+    background-color: #5521b5;
+}
+
+.bg-purple-700 {
+    background-color: #6d28d9;
+}
+
+.text-white {
+    color: white;
+}
+
+.text-opacity-80 {
+    opacity: 0.8;
+}
+
+.rounded-lg {
+    border-radius: 0.5rem;
+}
+
+.rounded {
+    border-radius: 0.25rem;
+}
+
+.rounded-full {
+    border-radius: 9999px;
+}
+
+.shadow-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.border-2 {
+    border-width: 2px;
+}
+
+.border-white {
+    border-color: white;
+}
+
+.border-opacity-20 {
+    border-opacity: 0.2;
+}
+
+.p-6 {
+    padding: 1.5rem;
+}
+
+.p-8 {
+    padding: 2rem;
+}
+
+.px-2 {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.py-1 {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+
+.px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.py-2 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.h-48 {
+    height: 12rem;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.backdrop-blur-sm {
+    backdrop-filter: blur(4px);
+}
+
+.transition-transform {
+    transition-property: transform;
+}
+
+.transition-colors {
+    transition-property: background-color, border-color, color, fill, stroke;
+}
+
+.duration-300 {
+    transition-duration: 300ms;
+}
+
+.hover\:transform:hover {
+    transform: scale(1.05);
+}
+
+.hover\:scale-105:hover {
+    transform: scale(1.05);
+}
+
+.hover\:bg-white:hover {
+    background-color: white;
+}
+
+.hover\:bg-opacity-20:hover {
+    background-opacity: 0.2;
+}
+
+/* Media queries for responsive design */
+@media (min-width: 768px) {
+    .md\:w-80 {
+        width: 20rem;
+    }
+}
