@@ -56,6 +56,15 @@ const Home: React.FC = () => {
   const [currentSection, setCurrentSection] = useState(-1);
   const resumeContentRef = useRef<HTMLDivElement>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 70);
+    
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -86,7 +95,7 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className="home-page">
+    <div className={`home-page page-fade-in ${!isLoading ? 'page-visible' : ''}`}>
       <header className="fixed-header">
         <nav className="social-nav">
           <a

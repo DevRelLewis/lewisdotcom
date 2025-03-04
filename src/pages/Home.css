@@ -566,3 +566,11 @@
     position: relative;
   }
   
+  .page-fade-in {
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+  }
+  
+  .page-visible {
+    opacity: 1;
+  }
