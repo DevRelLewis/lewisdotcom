@@ -1,3 +1,4 @@
+// src/pages/Home.tsx
 import React, { useState, useEffect, useRef } from 'react';
 import { Typewriter } from 'react-simple-typewriter';
 import './Home.css';
@@ -35,28 +36,30 @@ const Home: React.FC = () => {
     setFloatingIcons(iconPositions);
   }, []);
 
-    const localPaths = [
-      '/docker.png',
-      '/git.png',
-      '/github.png',
-      '/jira.png',
-      '/vscode.png',
-      '/js.png',
-      '/nextjs-64.png',
-      '/bootstrap.png',
-      '/tailwindcss.png',
-      '/html.png',
-      '/css.png',
-      '/mantine.png',
-      '/typescript.png',
-      '/postgres.png',
-      'sql.png'
-    ];
+  const localPaths = [
+    '/docker.png',
+    '/git.png',
+    '/github.png',
+    '/jira.png',
+    '/vscode.png',
+    '/js.png',
+    '/nextjs-64.png',
+    '/bootstrap.png',
+    '/tailwindcss.png',
+    '/html.png',
+    '/css.png',
+    '/mantine.png',
+    '/typescript.png',
+    '/postgres.png',
+    'sql.png'
+  ];
 
   const [currentSection, setCurrentSection] = useState(-1);
   const resumeContentRef = useRef<HTMLDivElement>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
   const [isLoading, setIsLoading] = useState(true);
+
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -69,7 +72,6 @@ const Home: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
 
   const handleOnType = () => {
     if (bottomRef.current) {
@@ -96,49 +98,68 @@ const Home: React.FC = () => {
 
   return (
     <div className={`home-page page-fade-in ${!isLoading ? 'page-visible' : ''}`}>
-      <header className="fixed-header">
-        <nav className="social-nav">
-          <a
-            href="#"
-            onClick={(e) => { e.preventDefault(); scrollToSection('home'); }}
-            rel="noopener noreferrer"
-            className="nav-link"
-          >
-            Home
-          </a>
-          <a
-            href="#"
-            onClick={(e) => { e.preventDefault(); scrollToSection('resume'); }}
-            className="nav-link"
-          >
-            Resume
-          </a>
-          <a
-            href="#"
-            onClick={(e) => { e.preventDefault(); scrollToSection('projects'); }}
-            className="nav-link"
-          >
-            Projects
-          </a>
+      <header className="fixed-header flex items-center justify-between px-4 py-2 bg-purple-700">
+          {/* Hamburger icon only visible on mobile */}
+          <div className="md:hidden">
+          </div>
+          <nav className={`social-nav ${isMobileMenuOpen ? 'block' : 'hidden'} md:flex`}>
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('home');
+                setIsMobileMenuOpen(false); // close menu after click
+              }}
+              rel="noopener noreferrer"
+              className="nav-link"
+            >
+              Home
+            </a>
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('resume');
+                setIsMobileMenuOpen(false);
+              }}
+              className="nav-link"
+            >
+              Resume
+            </a>
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('projects');
+                setIsMobileMenuOpen(false);
+              }}
+              className="nav-link"
+            >
+              Projects
+            </a>
+            <a
+              href="https://www.linkedin.com/in/lewiscmeyers/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nav-link"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              LinkedIn
+            </a>
+            <a
+              href="mailto:meyerslewis193@gmail.com"
+              className="nav-link"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Contact
+            </a>
+          </nav>
+        </header>
 
-          <a
-            href="https://www.linkedin.com/in/lewiscmeyers/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="nav-link"
-          >
-            LinkedIn
-          </a>
-
-          <a href="mailto:meyerslewis193@gmail.com" className="nav-link">
-            Contact
-          </a>
-        </nav>
-      </header>
 
       <div id="home" className="profile-section">
         <div className="floating-icons-container">
-        {floatingIcons.map((icon, index) => {
+          {floatingIcons.map((icon, index) => {
             const iconSrc = localPaths[index % localPaths.length];
             return (
               <div 
@@ -218,7 +239,8 @@ const Home: React.FC = () => {
         </div>
       </div>
 
-      <h1 className="resume-title text-4xl mb-6">Resume</h1>
+      <h1 className="resume-title">Resume</h1>
+
 
       {/* Resume Section */}
       <div id="resume" className="resume" ref={resumeContentRef}>
@@ -267,14 +289,14 @@ const Home: React.FC = () => {
                       onType={handleOnType}
                     />
                     <div>
-                    <Typewriter
-                      words={["Teachstone, Virginia, June 2023 – Present"]}
-                      typeSpeed={15}
-                      deleteSpeed={50}
-                      delaySpeed={1000}
-                      cursor={false}
-                      onType={handleOnType}
-                    />
+                      <Typewriter
+                        words={["Teachstone, Virginia, June 2023 – Present"]}
+                        typeSpeed={15}
+                        deleteSpeed={50}
+                        delaySpeed={1000}
+                        cursor={false}
+                        onType={handleOnType}
+                      />
                     </div>
                     
                     <ul className="list-disc ml-5 mb-3">
@@ -330,14 +352,14 @@ const Home: React.FC = () => {
                       onType={handleOnType}
                     />
                     <div>
-                    <Typewriter
-                      words={["Hyperlink, SF Bay Area, Jan 2024 – May 2024"]}
-                      typeSpeed={15}
-                      deleteSpeed={50}
-                      delaySpeed={1000}
-                      cursor={false}
-                      onType={handleOnType}
-                    />
+                      <Typewriter
+                        words={["Hyperlink, SF Bay Area, Jan 2024 – May 2024"]}
+                        typeSpeed={15}
+                        deleteSpeed={50}
+                        delaySpeed={1000}
+                        cursor={false}
+                        onType={handleOnType}
+                      />
                     </div>
                     
                     <ul className="list-disc ml-5 mb-3">
@@ -393,14 +415,14 @@ const Home: React.FC = () => {
                       onType={handleOnType}
                     />
                     <div>
-                    <Typewriter
-                      words={["Dank Coders, SF Bay Area, Feb 2023 – Feb 2024"]}
-                      typeSpeed={15}
-                      deleteSpeed={50}
-                      delaySpeed={1000}
-                      cursor={false}
-                      onType={handleOnType}
-                    />
+                      <Typewriter
+                        words={["Dank Coders, SF Bay Area, Feb 2023 – Feb 2024"]}
+                        typeSpeed={15}
+                        deleteSpeed={50}
+                        delaySpeed={1000}
+                        cursor={false}
+                        onType={handleOnType}
+                      />
                     </div>
                     
                     <ul className="list-disc ml-5 mb-3">
@@ -456,14 +478,14 @@ const Home: React.FC = () => {
                       onType={handleOnType}
                     />
                     <div>
-                    <Typewriter
-                      words={["Army National Guard, Leesburg, VA, Dec 2015 – Dec 2021"]}
-                      typeSpeed={15}
-                      deleteSpeed={50}
-                      delaySpeed={1000}
-                      cursor={false}
-                      onType={handleOnType}
-                    />
+                      <Typewriter
+                        words={["Army National Guard, Leesburg, VA, Dec 2015 – Dec 2021"]}
+                        typeSpeed={15}
+                        deleteSpeed={50}
+                        delaySpeed={1000}
+                        cursor={false}
+                        onType={handleOnType}
+                      />
                     </div>
                     <ul className="list-disc ml-5 mb-3">
                       <li className="ml-5 mb-2">
@@ -617,7 +639,7 @@ const Home: React.FC = () => {
   );
 };
 
-
+// If needed, keep or remove your custom formatter
 const formatResumeMarkdown = (markdown: string) => {
   if (!markdown) return null;
   
