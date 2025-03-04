@@ -141,6 +141,10 @@
 
 /* ------------------ RESUME-SPECIFIC CLASSES ------------------ */
 
+.resume {
+    padding-bottom: 30px;
+}
+
 .resume-title {
     text-align: center;
     margin: 20rem;
@@ -184,7 +188,7 @@
   list-style-type: disc;        
   list-style-position: outside; 
   margin-left: 1rem;         
-  padding-left: 1rem;          
+  padding-left: 1rem;      
   margin-bottom: 0.75rem;
 }
 
