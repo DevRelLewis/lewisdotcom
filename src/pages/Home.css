@@ -16,74 +16,88 @@
     position: relative;
   }
   
-.fixed-header {
+  .fixed-header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 50px;
+    height: 80px;
     z-index: 999;
     background-color: #9420a6;
-  
     display: flex;
-    justify-content: flex-end;
     align-items: center;
     padding: 0 20px;
     box-sizing: border-box;
   }
-
-  
-  /* Profile Section - explicitly centered */
-  .profile-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin-top: 0;
-    padding-top: 0;
-    text-align: center;
-  }
   
   .social-nav a {
-    margin-left: 20px;
+    margin-left: 5px;
     display: inline-block;
   }
-
-    /* Mobile view - 768px or less */
-    @media screen and (max-width: 425px) {
-        .fixed-header {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          z-index: 1000;
-          background-color: rgba(0, 0, 0, 0.9);
-        }
-        
-        .social-nav {
-          display: flex;
-          justify-content: space-around;
-          align-items: center;
-          width: 100%;
-          padding: 8px 5px;
-        }
-        
-        .nav-link {
-          font-size: 13px;
-          padding: 5px;
-          margin: 0;
-        }
-      }
   
+  /* .mobile-nav {
+    margin-left: 20px;
+  } */
+
   .nav-link {
     color: white;
     text-decoration: none;
-    font-size: 0.8rem;
+    font-size: 1.5rem;
     margin-right: 20px;
     transition: all 0.2s;
     position: relative;
   }
+
+        /* 1) Up to 500px */
+      @media screen and (max-width: 500px) {
+        .nav-link {
+          font-size: 15px;
+        }
+        .mobile-view-linkedin {
+          margin-left: 20vw;
+        }
+        .mobile-view-home {
+          padding-left: 13.5vw;
+          margin-bottom: 1rem;
+        }
+      }
+
+      /* 2) 501px–750px */
+      @media screen and (min-width: 501px) and (max-width: 750px) {
+        .nav-link {
+          font-size: 15px;
+        }
+        .mobile-view-linkedin {
+          margin-left: 25vw;
+        }
+        .mobile-view-home {
+          padding-left: 9.5vw;
+          margin-bottom: 1rem;
+        }
+      }
+
+      /* 3) 751px–900px */
+      @media screen and (min-width: 751px) and (max-width: 900px) {
+        .nav-link {
+          font-size: 18px;
+        }
+        .mobile-view-home {
+          padding-left: 9.5vw;
+          margin-bottom: 1rem;
+        }
+      }
+
+      /* 4) 901px–1550px */
+      @media screen and (min-width: 901px) and (max-width: 1550px) {
+        .nav-link {
+          font-size: 20px;
+        }
+        .mobile-view-home {
+          padding-left: 9.5vw;
+          margin-bottom: 1rem;
+        }
+      }
+
   
   .nav-link:hover {
     transform: scale(1.1);
@@ -116,6 +130,20 @@
   .social-icon:hover {
     transform: scale(1.2);
   }
+
+
+  /* Profile Section - explicitly centered */
+  .profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin-top: 0;
+    padding-top: 0;
+    text-align: center;
+  }
+
   
   /* Hide scrollbar, preserve scrolling */
   html, body {
@@ -133,7 +161,7 @@
   }
   
   
-  /* PROFILE SECTION                                                   */
+  /* PROFILE SECTION  */
   .profile-section {
     display: flex;
     flex-direction: column;
@@ -161,14 +189,14 @@
 
   .projects {
     text-align: center;
-    margin-bottom: 23rem;
+    margin-bottom: 20rem;
   }
   
 
 /* ------------------ RESUME-SPECIFIC CLASSES ------------------ */
 
 .resume {
-    padding-bottom: 30px;
+    padding-bottom: 150px;
 }
 
 .resume-title {
@@ -501,9 +529,9 @@
     height: 12rem;
   }
   
-  .items-center {
+  /* .items-center {
     align-items: center;
-  }
+  } */
   
   .backdrop-blur-sm {
     backdrop-filter: blur(4px);

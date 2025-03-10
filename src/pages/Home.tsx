@@ -1,4 +1,4 @@
-// src/pages/Home.tsx
+
 import React, { useState, useEffect, useRef } from 'react';
 import { Typewriter } from 'react-simple-typewriter';
 import './Home.css';
@@ -98,22 +98,21 @@ const Home: React.FC = () => {
 
   return (
     <div className={`home-page page-fade-in ${!isLoading ? 'page-visible' : ''}`}>
-      <header className="fixed-header flex items-center justify-between px-4 py-2 bg-purple-700">
-          {/* Hamburger icon only visible on mobile */}
-          <div className="md:hidden">
-          </div>
+      <header className="fixed-header flex items-center justify-center px-4 py-2 bg-purple-700">
           <nav className={`social-nav ${isMobileMenuOpen ? 'block' : 'hidden'} md:flex`}>
             <a
               href="#"
               onClick={(e) => {
                 e.preventDefault();
                 scrollToSection('home');
-                setIsMobileMenuOpen(false); // close menu after click
+                setIsMobileMenuOpen(true);
               }}
               rel="noopener noreferrer"
               className="nav-link"
             >
-              Home
+              <div className='mobile-view-home'>
+                Home
+              </div>
             </a>
             <a
               href="#"
@@ -144,7 +143,10 @@ const Home: React.FC = () => {
               className="nav-link"
               onClick={() => setIsMobileMenuOpen(false)}
             >
+              <div className='mobile-view-linkedin'>
               LinkedIn
+              </div>
+              
             </a>
             <a
               href="mailto:meyerslewis193@gmail.com"
@@ -195,6 +197,7 @@ const Home: React.FC = () => {
       <div id="projects" className="projects">
         <h1 className="text-4xl mb-12">My Projects</h1>
         <div className="flex flex-wrap justify-center gap-8 max-w-6xl mx-auto">
+          
           {/* Project Card 1 - Dream Net */}
           <div className="w-full md:w-80 bg-white bg-opacity-10 rounded-lg overflow-hidden shadow-lg border-2 border-white border-opacity-20 backdrop-blur-sm transition-transform duration-300 hover:transform hover:scale-105">
             <div className="h-48 bg-purple-800 flex items-center justify-center">
@@ -245,392 +248,410 @@ const Home: React.FC = () => {
       {/* Resume Section */}
       <div id="resume" className="resume" ref={resumeContentRef}>
         <div className="max-w-3xl mx-auto bg-white bg-opacity-90 p-8 rounded-lg border-2 border-white border-opacity-20">
-          {/* Static Resume Header and Tools */}
           <div className="resume-header text-left text-black mb-6">
             <h1 className="text-3xl font-bold mb-2">Lewis Meyers</h1>
             <p className="mb-4 text-xs">
-              <a href="mailto:meyerslewis193@gmail.com" className="text-blue-700 hover:underline">
+              <a
+                href="mailto:meyerslewis193@gmail.com"
+                className="text-blue-700 hover:underline"
+              >
                 meyerslewis193@gmail.com
               </a>{" "}
               |{" "}
-              <a href="https://www.linkedin.com/in/lewiscmeyers/" className="text-blue-700 hover:underline" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://www.linkedin.com/in/lewiscmeyers/"
+                className="text-blue-700 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 LinkedIn
               </a>{" "}
               | 571-294-9222
             </p>
-            <h2 className="text-2xl font-bold mt-6 mb-3 border-b-2 border-gray-300 pb-1">TOOLS</h2>
-            <p className="ml-5 mb-2">➔ Git, Github, Docker, Jira, Visual Studio Code</p>
-            <p className="ml-5 mb-2">➔ JavaScript-TypeScript, Next.js, Bootstrap, HTML5/CSS3, TailwindCSS, MantineCSS</p>
+            <h2 className="text-2xl font-bold mt-6 mb-3 border-b-2 border-gray-300 pb-1">
+              TOOLS
+            </h2>
+            <p className="ml-5 mb-2">
+              ➔ Git, Github, Docker, Jira, Visual Studio Code
+            </p>
+            <p className="ml-5 mb-2">
+              ➔ JavaScript-TypeScript, Next.js, Bootstrap, HTML5/CSS3, TailwindCSS,
+              MantineCSS
+            </p>
             <p className="ml-5 mb-2">➔ SQL, Postgres</p>
           </div>
 
-          {/* Experience Section */}
-          <div className="resume-full-content text-left text-black">
-            {currentSection >= 0 && (
-              <>
+          {/* =========================
+              SECTION 0: FIRST HALF
+            ========================= */}
+          {currentSection >= 0 && (
+            <div className="resume-full-content text-left text-black">
+              <Typewriter
+                words={["EXPERIENCE"]}
+                typeSpeed={15}
+                deleteSpeed={50}
+                delaySpeed={1000}
+                cursor={false}
+                onType={handleOnType}
+              />
+
+              {/* AI Frontend/Tier 3 Engineer */}
+              <div className="transition-all duration-500 mt-3">
                 <Typewriter
-                  words={["EXPERIENCE"]}
+                  words={["AI Frontend/Tier 3 Engineer"]}
                   typeSpeed={15}
                   deleteSpeed={50}
                   delaySpeed={1000}
                   cursor={false}
                   onType={handleOnType}
                 />
-
-                {/* Block 1: First Experience */}
-                {currentSection >= 0 && (
-                  <div className="transition-all duration-500">
-                    <Typewriter
-                      words={["AI Frontend/Tier 3 Engineer"]}
-                      typeSpeed={15}
-                      deleteSpeed={50}
-                      delaySpeed={1000}
-                      cursor={false}
-                      onType={handleOnType}
-                    />
-                    <div>
-                      <Typewriter
-                        words={["Teachstone, Virginia, June 2023 – Present"]}
-                        typeSpeed={15}
-                        deleteSpeed={50}
-                        delaySpeed={1000}
-                        cursor={false}
-                        onType={handleOnType}
-                      />
-                    </div>
-                    
-                    <ul className="list-disc ml-5 mb-3">
-                      <li className="ml-5 mb-2">
-                        <Typewriter
-                          words={[
-                            "Designed and refined Figma and React/TypeScript UIs, improving reporting tool accessibility and UX, boosting company-wide adoption by 40%."
-                          ]}
-                          typeSpeed={15}
-                          deleteSpeed={50}
-                          delaySpeed={1000}
-                          cursor={false}
-                          onType={handleOnType}
-                        />
-                      </li>
-                      <li className="ml-5 mb-2">
-                        <Typewriter
-                          words={[
-                            "Resolved 10-15 monthly Salesforce tickets and automated Java/SQL workflows, cutting turnaround time by 30% and enhancing AI tool efficiency by 25%."
-                          ]}
-                          typeSpeed={15}
-                          deleteSpeed={50}
-                          delaySpeed={1000}
-                          cursor={false}
-                          onType={handleOnType}
-                        />
-                      </li>
-                      <li className="ml-5 mb-2">
-                        <Typewriter
-                          words={[
-                            "Upgraded reporting dashboards with real-time analytics, increasing user engagement by 20% and supporting data-driven decisions."
-                          ]}
-                          typeSpeed={15}
-                          deleteSpeed={50}
-                          delaySpeed={1000}
-                          cursor={false}
-                          onType={handleOnType}
-                        />
-                      </li>
-                    </ul>
-                  </div>
-                )}
-
-                {/* Second Experience */}
-                {currentSection >= 1 && (
-                  <div className="transition-all duration-500">
-                    <Typewriter
-                      words={["AI Platform Engineer"]}
-                      typeSpeed={15}
-                      deleteSpeed={50}
-                      delaySpeed={1000}
-                      cursor={false}
-                      onType={handleOnType}
-                    />
-                    <div>
-                      <Typewriter
-                        words={["Hyperlink, SF Bay Area, Jan 2024 – May 2024"]}
-                        typeSpeed={15}
-                        deleteSpeed={50}
-                        delaySpeed={1000}
-                        cursor={false}
-                        onType={handleOnType}
-                      />
-                    </div>
-                    
-                    <ul className="list-disc ml-5 mb-3">
-                      <li className="ml-5 mb-2">
-                        <Typewriter
-                          words={[
-                            "Raised $3.2M at SXSW 2024 through an SVP pitch, delivering the AI speech generator MVP on time with 50+ users engaging over 5 minutes each."
-                          ]}
-                          typeSpeed={15}
-                          deleteSpeed={50}
-                          delaySpeed={1000}
-                          cursor={false}
-                          onType={handleOnType}
-                        />
-                      </li>
-                      <li className="ml-5 mb-2">
-                        <Typewriter
-                          words={[
-                            "Built TypeScript components and optimized Next.js APIs, boosting platform stability by 30% and speeding up 100+ daily queries."
-                          ]}
-                          typeSpeed={15}
-                          deleteSpeed={50}
-                          delaySpeed={1000}
-                          cursor={false}
-                          onType={handleOnType}
-                        />
-                      </li>
-                      <li className="ml-5 mb-2">
-                        <Typewriter
-                          words={[
-                            "Partnered with product teams to refine UX, growing user retention by 15% and solidifying Hyperlink's SXSW impact."
-                          ]}
-                          typeSpeed={15}
-                          deleteSpeed={50}
-                          delaySpeed={1000}
-                          cursor={false}
-                          onType={handleOnType}
-                        />
-                      </li>
-                    </ul>
-                  </div>
-                )}
-
-                {/* Third Experience */}
-                {currentSection >= 2 && (
-                  <div className="transition-all duration-500">
-                    <Typewriter
-                      words={["Intern Full Stack Developer"]}
-                      typeSpeed={15}
-                      deleteSpeed={50}
-                      delaySpeed={1000}
-                      cursor={false}
-                      onType={handleOnType}
-                    />
-                    <div>
-                      <Typewriter
-                        words={["Dank Coders, SF Bay Area, Feb 2023 – Feb 2024"]}
-                        typeSpeed={15}
-                        deleteSpeed={50}
-                        delaySpeed={1000}
-                        cursor={false}
-                        onType={handleOnType}
-                      />
-                    </div>
-                    
-                    <ul className="list-disc ml-5 mb-3">
-                      <li className="ml-5 mb-2">
-                        <Typewriter
-                          words={[
-                            "Designed a 3D ecommerce site with Three.js and Figma UI/UX, growing smoothie shop orders from 5-10 daily (Feb 2024) to 15-20 (Feb 2025)."
-                          ]}
-                          typeSpeed={15}
-                          deleteSpeed={50}
-                          delaySpeed={1000}
-                          cursor={false}
-                          onType={handleOnType}
-                        />
-                      </li>
-                      <li className="ml-5 mb-2">
-                        <Typewriter
-                          words={[
-                            "Integrated Node.js for optimized navigation and email APIs, cutting response times by 50% and doubling order volume in 12 months."
-                          ]}
-                          typeSpeed={15}
-                          deleteSpeed={50}
-                          delaySpeed={1000}
-                          cursor={false}
-                          onType={handleOnType}
-                        />
-                      </li>
-                      <li className="ml-5 mb-2">
-                        <Typewriter
-                          words={[
-                            "Collaborated with the client to refine features, increasing customer satisfaction by 25% and securing repeat orders."
-                          ]}
-                          typeSpeed={15}
-                          deleteSpeed={50}
-                          delaySpeed={1000}
-                          cursor={false}
-                          onType={handleOnType}
-                        />
-                      </li>
-                    </ul>
-                  </div>
-                )}
-
-                {/* Fourth Experience */}
-                {currentSection >= 3 && (
-                  <div className="transition-all duration-500">
-                    <Typewriter
-                      words={["Infantryman/Tanker"]}
-                      typeSpeed={15}
-                      deleteSpeed={50}
-                      delaySpeed={1000}
-                      cursor={false}
-                      onType={handleOnType}
-                    />
-                    <div>
-                      <Typewriter
-                        words={["Army National Guard, Leesburg, VA, Dec 2015 – Dec 2021"]}
-                        typeSpeed={15}
-                        deleteSpeed={50}
-                        delaySpeed={1000}
-                        cursor={false}
-                        onType={handleOnType}
-                      />
-                    </div>
-                    <ul className="list-disc ml-5 mb-3">
-                      <li className="ml-5 mb-2">
-                        <Typewriter
-                          words={[
-                            "Patrolled entry points and monitored $45M+ in surveillance equipment, weaponry and 200+ vehicles daily to secure 30+ personnel and 200+ visitors across a 12+ hour shift."
-                          ]}
-                          typeSpeed={15}
-                          deleteSpeed={50}
-                          delaySpeed={1000}
-                          cursor={false}
-                          onType={handleOnType}
-                        />
-                      </li>
-                      <li className="ml-5 mb-2">
-                        <Typewriter
-                          words={[
-                            "Key personnel in M1 Abrams Tank operations in Kuwait, managing target detection, gun control, and maintenance with a 4 person team while conducting 40+ member drills and maneuvers."
-                          ]}
-                          typeSpeed={15}
-                          deleteSpeed={50}
-                          delaySpeed={1000}
-                          cursor={false}
-                          onType={handleOnType}
-                        />
-                      </li>
-                      <li className="ml-5 mb-2">
-                        <Typewriter
-                          words={[
-                            "Led logistics training for 10+ troops, reducing equipment downtime by 15% and ensuring mission readiness during deployments."
-                          ]}
-                          typeSpeed={15}
-                          deleteSpeed={50}
-                          delaySpeed={1000}
-                          cursor={false}
-                          onType={handleOnType}
-                        />
-                      </li>
-                    </ul>
-                  </div>
-                )}
-
-                {/* PROJECTS title */}
-                {currentSection >= 4 && (
+                <div>
                   <Typewriter
-                    words={["PROJECTS"]}
+                    words={["Teachstone, Virginia, June 2023 – Present"]}
                     typeSpeed={15}
                     deleteSpeed={50}
                     delaySpeed={1000}
-                    cursor
+                    cursor={false}
                     onType={handleOnType}
                   />
-                )}
-
-                {/* First Project */}
-                {currentSection >= 5 && (
-                  <div className="transition-all duration-500">
+                </div>
+                <ul className="list-disc ml-5 mb-3">
+                  <li className="ml-5 mb-2">
                     <Typewriter
-                      words={["Dream Net AI Dream Interpreter"]}
+                      words={[
+                        "Designed and refined Figma and React/TypeScript UIs, improving reporting tool accessibility and UX, boosting company-wide adoption by 40%."
+                      ]}
                       typeSpeed={15}
                       deleteSpeed={50}
                       delaySpeed={1000}
                       cursor={false}
                       onType={handleOnType}
                     />
-                    <ul className="list-disc ml-5 mb-3">
-                      <li className="ml-5 mb-2">
-                        <Typewriter
-                          words={[
-                            "Built an AI dream interpreter using Next.js and ChatGPT (trained on specialized dream data), improving interpretation accuracy by 25% during a 30-tester beta."
-                          ]}
-                          typeSpeed={15}
-                          deleteSpeed={50}
-                          delaySpeed={1000}
-                          cursor={false}
-                          onType={handleOnType}
-                        />
-                      </li>
-                      <li className="ml-5 mb-2">
-                        <Typewriter
-                          words={[
-                            "Implemented Supabase for user authentication and backend services, ensuring real-time data management and secure access."
-                          ]}
-                          typeSpeed={15}
-                          deleteSpeed={50}
-                          delaySpeed={1000}
-                          cursor={false}
-                          onType={handleOnType}
-                        />
-                      </li>
-                    </ul>
-                  </div>
-                )}
-
-                {/* Second Project */}
-                {currentSection >= 6 && (
-                  <div className="transition-all duration-500">
+                  </li>
+                  <li className="ml-5 mb-2">
                     <Typewriter
-                      words={["Automated Options Trading Bot"]}
+                      words={[
+                        "Resolved 10-15 monthly Salesforce tickets and automated Java/SQL workflows, cutting turnaround time by 30% and enhancing AI tool efficiency by 25%."
+                      ]}
                       typeSpeed={15}
                       deleteSpeed={50}
                       delaySpeed={1000}
                       cursor={false}
                       onType={handleOnType}
                     />
-                    <ul className="list-disc ml-5 mb-3">
-                      <li className="ml-5 mb-2">
-                        <Typewriter
-                          words={[
-                            "Coded a Python bot with Alpaca API and OpenAI, delivering 15% ROI in $100,000 paper money tests."
-                          ]}
-                          typeSpeed={15}
-                          deleteSpeed={50}
-                          delaySpeed={1000}
-                          cursor={false}
-                          onType={handleOnType}
-                        />
-                      </li>
-                      <li className="ml-5 mb-2">
-                        <Typewriter
-                          words={[
-                            "Designed a Streamlit dashboard with advanced strategies for real-time trade monitoring and execution."
-                          ]}
-                          typeSpeed={15}
-                          deleteSpeed={50}
-                          delaySpeed={1000}
-                          cursor={false}
-                          onType={handleOnType}
-                        />
-                      </li>
-                    </ul>
-                  </div>
-                )}
-              </>
-            )}
-            <div ref={bottomRef} />
-          </div>
+                  </li>
+                  <li className="ml-5 mb-2">
+                    <Typewriter
+                      words={[
+                        "Upgraded reporting dashboards with real-time analytics, increasing user engagement by 20% and supporting data-driven decisions."
+                      ]}
+                      typeSpeed={15}
+                      deleteSpeed={50}
+                      delaySpeed={1000}
+                      cursor={false}
+                      onType={handleOnType}
+                    />
+                  </li>
+                </ul>
+              </div>
 
-          {/* Continue Button */}
+              {/* AI Platform Engineer */}
+              <div className="transition-all duration-500">
+                <Typewriter
+                  words={["AI Platform Engineer"]}
+                  typeSpeed={15}
+                  deleteSpeed={50}
+                  delaySpeed={1000}
+                  cursor={false}
+                  onType={handleOnType}
+                />
+                <div>
+                  <Typewriter
+                    words={["Hyperlink, SF Bay Area, Jan 2024 – May 2024"]}
+                    typeSpeed={15}
+                    deleteSpeed={50}
+                    delaySpeed={1000}
+                    cursor={false}
+                    onType={handleOnType}
+                  />
+                </div>
+                <ul className="list-disc ml-5 mb-3">
+                  <li className="ml-5 mb-2">
+                    <Typewriter
+                      words={[
+                        "Raised $3.2M at SXSW 2024 through an SVP pitch, delivering the AI speech generator MVP on time with 50+ users engaging over 5 minutes each."
+                      ]}
+                      typeSpeed={15}
+                      deleteSpeed={50}
+                      delaySpeed={1000}
+                      cursor={false}
+                      onType={handleOnType}
+                    />
+                  </li>
+                  <li className="ml-5 mb-2">
+                    <Typewriter
+                      words={[
+                        "Built TypeScript components and optimized Next.js APIs, boosting platform stability by 30% and speeding up 100+ daily queries."
+                      ]}
+                      typeSpeed={15}
+                      deleteSpeed={50}
+                      delaySpeed={1000}
+                      cursor={false}
+                      onType={handleOnType}
+                    />
+                  </li>
+                  <li className="ml-5 mb-2">
+                    <Typewriter
+                      words={[
+                        "Partnered with product teams to refine UX, growing user retention by 15% and solidifying Hyperlink's SXSW impact."
+                      ]}
+                      typeSpeed={15}
+                      deleteSpeed={50}
+                      delaySpeed={1000}
+                      cursor={false}
+                      onType={handleOnType}
+                    />
+                  </li>
+                </ul>
+              </div>
+
+              {/* Intern Full Stack Developer */}
+              <div className="transition-all duration-500">
+                <Typewriter
+                  words={["Intern Full Stack Developer"]}
+                  typeSpeed={15}
+                  deleteSpeed={50}
+                  delaySpeed={1000}
+                  cursor={false}
+                  onType={handleOnType}
+                />
+                <div>
+                  <Typewriter
+                    words={["Dank Coders, SF Bay Area, Feb 2023 – Feb 2024"]}
+                    typeSpeed={15}
+                    deleteSpeed={50}
+                    delaySpeed={1000}
+                    cursor={false}
+                    onType={handleOnType}
+                  />
+                </div>
+                <ul className="list-disc ml-5 mb-3">
+                  <li className="ml-5 mb-2">
+                    <Typewriter
+                      words={[
+                        "Designed a 3D ecommerce site with Three.js and Figma UI/UX, growing smoothie shop orders from 5-10 daily (Feb 2024) to 15-20 (Feb 2025)."
+                      ]}
+                      typeSpeed={15}
+                      deleteSpeed={50}
+                      delaySpeed={1000}
+                      cursor={false}
+                      onType={handleOnType}
+                    />
+                  </li>
+                  <li className="ml-5 mb-2">
+                    <Typewriter
+                      words={[
+                        "Integrated Node.js for optimized navigation and email APIs, cutting response times by 50% and doubling order volume in 12 months."
+                      ]}
+                      typeSpeed={15}
+                      deleteSpeed={50}
+                      delaySpeed={1000}
+                      cursor={false}
+                      onType={handleOnType}
+                    />
+                  </li>
+                  <li className="ml-5 mb-2">
+                    <Typewriter
+                      words={[
+                        "Collaborated with the client to refine features, increasing customer satisfaction by 25% and securing repeat orders."
+                      ]}
+                      typeSpeed={15}
+                      deleteSpeed={50}
+                      delaySpeed={1000}
+                      cursor={false}
+                      onType={handleOnType}
+                    />
+                  </li>
+                </ul>
+              </div>
+            </div>
+          )}
+
+          {/* =========================
+              SECTION 1: SECOND HALF
+            ========================= */}
+          {currentSection >= 1 && (
+            <div className="resume-full-content text-left text-black">
+              {/* Infantryman/Tanker */}
+              <div className="transition-all duration-500">
+                <Typewriter
+                  words={["Infantryman/Tanker"]}
+                  typeSpeed={15}
+                  deleteSpeed={50}
+                  delaySpeed={1000}
+                  cursor={false}
+                  onType={handleOnType}
+                />
+                <div>
+                  <Typewriter
+                    words={[
+                      "Army National Guard, Leesburg, VA, Dec 2015 – Dec 2021"
+                    ]}
+                    typeSpeed={15}
+                    deleteSpeed={50}
+                    delaySpeed={1000}
+                    cursor={false}
+                    onType={handleOnType}
+                  />
+                </div>
+                <ul className="list-disc ml-5 mb-3">
+                  <li className="ml-5 mb-2">
+                    <Typewriter
+                      words={[
+                        "Patrolled entry points and monitored $45M+ in surveillance equipment, weaponry and 200+ vehicles daily to secure 30+ personnel and 200+ visitors across a 12+ hour shift."
+                      ]}
+                      typeSpeed={15}
+                      deleteSpeed={50}
+                      delaySpeed={1000}
+                      cursor={false}
+                      onType={handleOnType}
+                    />
+                  </li>
+                  <li className="ml-5 mb-2">
+                    <Typewriter
+                      words={[
+                        "Key personnel in M1 Abrams Tank operations in Kuwait, managing target detection, gun control, and maintenance with a 4 person team while conducting 40+ member drills and maneuvers."
+                      ]}
+                      typeSpeed={15}
+                      deleteSpeed={50}
+                      delaySpeed={1000}
+                      cursor={false}
+                      onType={handleOnType}
+                    />
+                  </li>
+                  <li className="ml-5 mb-2">
+                    <Typewriter
+                      words={[
+                        "Led logistics training for 10+ troops, reducing equipment downtime by 15% and ensuring mission readiness during deployments."
+                      ]}
+                      typeSpeed={15}
+                      deleteSpeed={50}
+                      delaySpeed={1000}
+                      cursor={false}
+                      onType={handleOnType}
+                    />
+                  </li>
+                </ul>
+              </div>
+
+              {/* PROJECTS Title */}
+              <Typewriter
+                words={["PROJECTS"]}
+                typeSpeed={15}
+                deleteSpeed={50}
+                delaySpeed={1000}
+                cursor={false}
+                onType={handleOnType}
+              />
+
+              {/* Dream Net AI Dream Interpreter */}
+              <div className="transition-all duration-500 mt-3">
+                <Typewriter
+                  words={["Dream Net AI Dream Interpreter"]}
+                  typeSpeed={15}
+                  deleteSpeed={50}
+                  delaySpeed={1000}
+                  cursor={false}
+                  onType={handleOnType}
+                />
+                <ul className="list-disc ml-5 mb-3">
+                  <li className="ml-5 mb-2">
+                    <Typewriter
+                      words={[
+                        "Built an AI dream interpreter using Next.js and ChatGPT (trained on specialized dream data), improving interpretation accuracy by 25% during a 30-tester beta."
+                      ]}
+                      typeSpeed={15}
+                      deleteSpeed={50}
+                      delaySpeed={1000}
+                      cursor={false}
+                      onType={handleOnType}
+                    />
+                  </li>
+                  <li className="ml-5 mb-2">
+                    <Typewriter
+                      words={[
+                        "Implemented Supabase for user authentication and backend services, ensuring real-time data management and secure access."
+                      ]}
+                      typeSpeed={15}
+                      deleteSpeed={50}
+                      delaySpeed={1000}
+                      cursor={false}
+                      onType={handleOnType}
+                    />
+                  </li>
+                </ul>
+              </div>
+
+              {/* Automated Options Trading Bot */}
+              <div className="transition-all duration-500">
+                <Typewriter
+                  words={["Automated Options Trading Bot"]}
+                  typeSpeed={15}
+                  deleteSpeed={50}
+                  delaySpeed={1000}
+                  cursor={false}
+                  onType={handleOnType}
+                />
+                <ul className="list-disc ml-5 mb-3">
+                  <li className="ml-5 mb-2">
+                    <Typewriter
+                      words={[
+                        "Coded a Python bot with Alpaca API and OpenAI, delivering 15% ROI in $100,000 paper money tests."
+                      ]}
+                      typeSpeed={15}
+                      deleteSpeed={50}
+                      delaySpeed={1000}
+                      cursor={false}
+                      onType={handleOnType}
+                    />
+                  </li>
+                  <li className="ml-5 mb-2">
+                    <Typewriter
+                      words={[
+                        "Designed a Streamlit dashboard with advanced strategies for real-time trade monitoring and execution."
+                      ]}
+                      typeSpeed={15}
+                      deleteSpeed={50}
+                      delaySpeed={1000}
+                      cursor={false}
+                      onType={handleOnType}
+                    />
+                  </li>
+                </ul>
+              </div>
+            </div>
+          )}
+
+          <div ref={bottomRef} />
           <div className="mt-8 flex justify-center">
-            <button 
-              onClick={() => setCurrentSection(prev => prev < 7 ? prev + 1 : 0)}
+            <button
+              onClick={() =>
+                setCurrentSection((prev) => {
+                  // if prev = -1, show first chunk => 0
+                  // if prev = 0, show second chunk => 1
+                  // if prev = 1, hide all => -1
+                  if (prev === -1) return 0;
+                  if (prev === 0) return 1;
+                  return -1;
+                })
+              }
               className="px-6 py-2 bg-purple-700 text-white rounded-md hover:bg-purple-600 transition-colors cursor-pointer button-pressstartfont"
             >
-              {currentSection === 6 ? "Start Over" : "Continue →"}
+              {currentSection === -1
+                ? "View Resume"
+                : currentSection === 0
+                ? "Continue →"
+                : "Start Over"}
             </button>
           </div>
         </div>
@@ -639,7 +660,6 @@ const Home: React.FC = () => {
   );
 };
 
-// If needed, keep or remove your custom formatter
 const formatResumeMarkdown = (markdown: string) => {
   if (!markdown) return null;
   
