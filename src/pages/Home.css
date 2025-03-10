@@ -48,21 +48,20 @@
     position: relative;
   }
 
-        /* 1) Up to 500px */
-      @media screen and (max-width: 500px) {
+      @media screen and (max-width: 430px) and (max-width: 501px) {
         .nav-link {
           font-size: 15px;
         }
         .mobile-view-linkedin {
-          margin-left: 20vw;
+          margin-left: 15vw;
         }
         .mobile-view-home {
-          padding-left: 13.5vw;
+          padding-left: 10vw;
           margin-bottom: 1rem;
         }
       }
 
-      /* 2) 501px–750px */
+      
       @media screen and (min-width: 501px) and (max-width: 750px) {
         .nav-link {
           font-size: 15px;
@@ -76,7 +75,7 @@
         }
       }
 
-      /* 3) 751px–900px */
+      
       @media screen and (min-width: 751px) and (max-width: 900px) {
         .nav-link {
           font-size: 18px;
@@ -87,7 +86,7 @@
         }
       }
 
-      /* 4) 901px–1550px */
+      
       @media screen and (min-width: 901px) and (max-width: 1550px) {
         .nav-link {
           font-size: 20px;
