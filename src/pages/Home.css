@@ -55,37 +55,11 @@
       margin: 1vw;
     }
     .mobile-view-linkedin {
-      margin-left: 30px;
+      margin-left: 300px;
     }
     .mobile-view-home {
       padding-left: 12px;
       margin-bottom: 1rem;
-    }
-  
- 
-    .nav-link:hover {
-      transform: none !important;
-      text-shadow: none !important;
-    }
-    .nav-link:hover::after {
-      width: 0 !important;
-    }
-
-    .nav-link:active,
-    .nav-link:focus {
-      font-weight: bold;
-    }
-  }
-
-  @media screen and (max-width: 500px) {
-    .nav-link {
-      font-size: 17px;
-      padding: 5vw;
-      padding-left: 8vw;
-      margin: -4vw;
-    }
-    .mobile-view-linkedin {
-      margin-left: 30px;
     }
   }
 
@@ -99,18 +73,6 @@
     .mobile-view-home {
       padding-left: 10vw;
       margin-bottom: 1rem;
-    }
-  
-    .nav-link:hover {
-      transform: none !important;
-      text-shadow: none !important;
-    }
-    .nav-link:hover::after {
-      width: 0 !important;
-    }
-    .nav-link:active,
-    .nav-link:focus {
-      font-weight: bold;
     }
   }
   
