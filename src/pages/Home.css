@@ -153,7 +153,6 @@
     margin-top: 0;
     padding-top: 0;
     text-align: center;
-    z-index: 999;
   }
 
   .profile-name {
@@ -186,7 +185,7 @@
     height: 100vh; 
     margin-top: 0; 
     padding-top: 0;
-    z-index: 999;
+    z-index: 99;
   }
   
   .profile-image {
