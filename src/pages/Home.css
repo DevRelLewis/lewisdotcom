@@ -76,6 +76,21 @@
     }
 
   }
+
+  @media screen and (max-width: 430px){
+    .nav-link {
+      font-size: 15px;
+      padding: 2vw;
+      margin: -1vw;
+    }
+    .mobile-view-linkedin {
+      margin-left: 15vw;
+    }
+    .mobile-view-home {
+      padding-left: 10vw;
+      margin-bottom: 1rem;
+    }
+  }
   
   @media screen and (min-width: 501px) and (max-width: 750px) {
     .nav-link {
