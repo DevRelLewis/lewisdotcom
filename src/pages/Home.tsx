@@ -197,7 +197,7 @@ const Home: React.FC = () => {
       <div id="projects" className="projects">
         <h1 className="text-4xl mb-12">My Projects</h1>
         <div className="flex flex-wrap justify-center gap-8 max-w-6xl mx-auto">
-          
+
           {/* Project Card 1 - Dream Net */}
           <div className="w-full md:w-80 bg-white bg-opacity-10 rounded-lg overflow-hidden shadow-lg border-2 border-white border-opacity-20 backdrop-blur-sm transition-transform duration-300 hover:transform hover:scale-105">
             <div className="h-48 bg-purple-800 flex items-center justify-center">
