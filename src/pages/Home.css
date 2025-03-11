@@ -48,69 +48,104 @@
     position: relative;
   }
 
-      @media (max-width: 390px) {
-        .nav-link {
-          font-size: 30px;
-          padding: -1vw;
-          margin: 1vw;
-        }
-        .mobile-view-linkedin {
-          margin-left: 300px;
-        }
-        .mobile-view-home {
-          padding-left: 12px;
-          margin-bottom: 1rem;
-        }
-      }
+  @media (max-width: 390px) {
+    .nav-link {
+      font-size: 30px;
+      padding: -1vw;
+      margin: 1vw;
+    }
+    .mobile-view-linkedin {
+      margin-left: 30px;
+    }
+    .mobile-view-home {
+      padding-left: 12px;
+      margin-bottom: 1rem;
+    }
+  
+ 
+    .nav-link:hover {
+      transform: none !important;
+      text-shadow: none !important;
+    }
+    .nav-link:hover::after {
+      width: 0 !important;
+    }
 
-      @media screen and (max-width: 430px) and (max-width: 501px) {
-        .nav-link {
-          font-size: 15px;
-        }
-        .mobile-view-linkedin {
-          margin-left: 17vw;
-        }
-        .mobile-view-home {
-          padding-left: 10vw;
-          margin-bottom: 1rem;
-        }
-      }
+    .nav-link:active,
+    .nav-link:focus {
+      font-weight: bold;
+    }
+  }
 
-      
-      @media screen and (min-width: 501px) and (max-width: 750px) {
-        .nav-link {
-          font-size: 15px;
-        }
-        .mobile-view-linkedin {
-          margin-left: 25vw;
-        }
-        .mobile-view-home {
-          padding-left: 9.5vw;
-          margin-bottom: 1rem;
-        }
-      }
+  @media screen and (max-width: 500px) {
+    .nav-link {
+      font-size: 17px;
+      padding: 5vw;
+      padding-left: 8vw;
+      margin: -4vw;
+    }
+    .mobile-view-linkedin {
+      margin-left: 30px;
+    }
+  }
 
-      
-      @media screen and (min-width: 751px) and (max-width: 900px) {
-        .nav-link {
-          font-size: 18px;
-        }
-        .mobile-view-home {
-          padding-left: 9.5vw;
-          margin-bottom: 1rem;
-        }
-      }
-
-      
-      @media screen and (min-width: 901px) and (max-width: 1550px) {
-        .nav-link {
-          font-size: 20px;
-        }
-        .mobile-view-home {
-          padding-left: 9.5vw;
-          margin-bottom: 1rem;
-        }
-      }
+  @media screen and (max-width: 430px) and (max-width: 501px) {
+    .nav-link {
+      font-size: 15px;
+    }
+    .mobile-view-linkedin {
+      margin-left: 17vw;
+    }
+    .mobile-view-home {
+      padding-left: 10vw;
+      margin-bottom: 1rem;
+    }
+  
+    .nav-link:hover {
+      transform: none !important;
+      text-shadow: none !important;
+    }
+    .nav-link:hover::after {
+      width: 0 !important;
+    }
+    .nav-link:active,
+    .nav-link:focus {
+      font-weight: bold;
+    }
+  }
+  
+  @media screen and (min-width: 501px) and (max-width: 750px) {
+    .nav-link {
+      font-size: 15px;
+    }
+    .mobile-view-linkedin {
+      margin-left: 25vw;
+    }
+    .mobile-view-home {
+      padding-left: 9.5vw;
+      margin-bottom: 1rem;
+    }
+  }
+  
+  @media screen and (min-width: 751px) and (max-width: 900px) {
+    .nav-link {
+      font-size: 18px;
+    }
+    .mobile-view-home {
+      padding-left: 9.5vw;
+      margin-bottom: 1rem;
+    }
+  }
+  
+  @media screen and (min-width: 901px) and(max-width: 1550px) {
+    .nav-link {
+      font-size: 20px;
+    }
+    .mobile-view-home {
+      padding-left: 9.5vw;
+      margin-bottom: 1rem;
+    }
+  }
 
   
   .nav-link:hover {
